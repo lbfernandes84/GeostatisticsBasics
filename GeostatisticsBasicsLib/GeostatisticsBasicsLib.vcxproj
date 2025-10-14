@@ -80,6 +80,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\covariance\CovarianceMatrixBuilder.h" />
+    <ClInclude Include="include\Entities\Point.h" />
+    <ClInclude Include="include\Ordinarykriging\Ordinarykriging.h" />
     <ClInclude Include="include\utils\utils.h" />
     <ClInclude Include="include\variograms\Exponential.h" />
     <ClInclude Include="include\variograms\Gaussian.h" />
@@ -87,7 +90,9 @@
     <ClInclude Include="include\variograms\Variogram.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\covariance\CovarianceMatrixBuilder.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\OrdinaryKriging\OrdinaryKriging.cpp" />
     <ClCompile Include="src\utils\Utils.cpp" />
     <ClCompile Include="src\variograms\Gaussian.cpp" />
     <ClCompile Include="src\variograms\Exponential.cpp" />

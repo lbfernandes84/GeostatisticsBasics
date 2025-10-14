@@ -1,3 +1,5 @@
+#include <stdexcept>
+
 #include "pch.h"
 #include "variograms/Gaussian.h"
 #include "variograms/Exponential.h"
@@ -20,6 +22,33 @@ TEST(VariogramBasis, GetRange)
 {
     Exponential variogram(1.3, 10.0, 25.0);
     EXPECT_EQ(variogram.GetRange(), 25.0);
+}
+
+TEST(VariogramBasis, InvalidNugget)
+{    
+    EXPECT_THROW(Variogram(-1.0, 10.0, 25.0), std::invalid_argument);
+}
+
+TEST(VariogramBasis, InvalidRange)
+{
+    EXPECT_THROW(Variogram(1.0, 0.0, 25.0), std::invalid_argument);
+}
+
+TEST(VariogramBasis, SillLessThanNugget)
+{
+    EXPECT_THROW(Variogram(5.0, 4.0, 25.0), std::invalid_argument);
+}
+
+TEST(VariogramBasis, hNegative)
+{
+    auto var = Variogram(5.0, 6.0, 25.0);
+    EXPECT_THROW(var(-1.0), std::domain_error);
+}
+
+TEST(VariogramBasis, callModelBaseClass)
+{
+    auto var = Variogram(5.0, 6.0, 25.0);
+    EXPECT_THROW(var(1.0), std::logic_error);
 }
 
 TEST(VariogramSpherical, h0IsEqualNugget)

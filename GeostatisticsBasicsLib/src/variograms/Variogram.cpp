@@ -1,7 +1,28 @@
+#include <stdexcept>
 #include "variograms\variogram.h"
+
+Variogram::Variogram(const double& nugget, const double& sill, const double& range) :m_nugget(nugget), m_sill(sill), m_range(range)
+{
+	if (nugget < 0)
+	{
+		throw std::invalid_argument("nugget must be >= 0");
+	}
+	if (range <= 0)
+	{
+		throw std::invalid_argument("range must be > 0");
+	}
+	if (sill < nugget) 
+	{
+		throw std::invalid_argument("sill must be >= nugget");
+	}
+}
 
 double Variogram::operator()(const double& h) const
 {
+	if (h < 0) 
+	{
+		throw std::domain_error("distance must be non-negative");
+	}
 	double C = m_sill - m_nugget;
 	return Model(h, C);
 }
@@ -19,4 +40,10 @@ double Variogram::GetSill() const
 double Variogram::GetRange() const
 {	
 	return m_range;
+}
+
+double Variogram::Model(const double& h, const double& C) const
+{
+	throw std::logic_error("Cannot call this method directly");
+	return 0.0;
 }
