@@ -8,8 +8,8 @@ protected:
 		double m_range;
 public:	
 	Variogram(const double& nugget, const double& sill, const double& range);
-	virtual ~Variogram() {}
-	virtual double operator()(const double& h) const;
+	virtual ~Variogram() = default;
+	double operator()(const double& h) const;
 	double GetNugget() const;
 	double GetSill() const;
 	double GetRange() const;

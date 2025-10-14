@@ -7,8 +7,8 @@
 EstimationResult OrdinaryKriging::Estimate(const Eigen::VectorXd& values, const Point& target)
 {
 	int samplesCount = m_samples.size();
-	CovarianceMatrixBuilder covarianceMatrixBuilder(m_samples, m_variogram);
-	covarianceMatrixBuilder.Build();
+	CovarianceMatrixBuilder covarianceMatrixBuilder(m_samples);
+	covarianceMatrixBuilder.Build(m_variogram);
 	Eigen::MatrixXd& covMatrix = covarianceMatrixBuilder.GetCovarianceMatrixRef();
 	Eigen::VectorXd C0(samplesCount);
 	for (int i = 0; i < samplesCount; ++i)
