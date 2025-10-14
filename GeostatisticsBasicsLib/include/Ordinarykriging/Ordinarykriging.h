@@ -21,7 +21,7 @@ class OrdinaryKriging {
 	
 public:
 	OrdinaryKriging(const std::vector<Point>& points, const Variogram& variogram) : m_samples(points), m_variogram(variogram) {};
-	EstimationResult Estimate(const Eigen::VectorXd& values, const Point& target);
+	EstimationResult Estimate(const Variogram& variogram, const Eigen::VectorXd& values, const Point& target);
 
 };
 	

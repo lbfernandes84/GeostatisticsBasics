@@ -4,18 +4,18 @@
 #include "Ordinarykriging/Ordinarykriging.h"
 #include "utils/utils.h"
 
-EstimationResult OrdinaryKriging::Estimate(const Eigen::VectorXd& values, const Point& target)
+EstimationResult OrdinaryKriging::Estimate(const Variogram& variogram, const Eigen::VectorXd& values, const Point& target)
 {
 	int samplesCount = m_samples.size();
 	CovarianceMatrixBuilder covarianceMatrixBuilder(m_samples);
-	covarianceMatrixBuilder.Build(m_variogram);
+	covarianceMatrixBuilder.Build(variogram);
 	Eigen::MatrixXd& covMatrix = covarianceMatrixBuilder.GetCovarianceMatrixRef();
 	Eigen::VectorXd C0(samplesCount);
 	for (int i = 0; i < samplesCount; ++i)
 	{
 		double h = Utils::EuclidianDistance(m_samples[i], target);
-		double gamma = m_variogram(h);
-		C0(i) = m_variogram.GetSill() - gamma;
+		double gamma = variogram(h);
+		C0(i) = variogram.GetSill() - gamma;
 	}
 
 	//Build aumengted matrix A and b
@@ -56,6 +56,5 @@ EstimationResult OrdinaryKriging::Estimate(const Eigen::VectorXd& values, const 
 	res.variance = variance;
 	res.weights = w;
 	res.lagrange = mu;
-	return res;
-		
+	return res;		
 }
