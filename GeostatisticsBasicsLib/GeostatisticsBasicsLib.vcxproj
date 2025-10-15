@@ -105,6 +105,9 @@
     <ClCompile Include="src\variograms\Spherical.cpp" />
     <ClCompile Include="src\variograms\Variogram.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

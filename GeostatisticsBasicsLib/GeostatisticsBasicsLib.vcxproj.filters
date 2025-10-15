@@ -24,4 +24,7 @@
     <ClCompile Include="src\Entities\SampleSet.cpp" />
     <ClCompile Include="src\Entities\SampleValues.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
 </Project>
