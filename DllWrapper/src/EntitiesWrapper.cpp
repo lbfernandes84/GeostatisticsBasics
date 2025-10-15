@@ -22,12 +22,12 @@ void EntitiesSampleSet_AddSample(SampleSet* pSampleSet, Point* pPoint)
 	}
 }
 
-SampleValues* EntitiesSampleValues_Create(const int& size)
+SampleValues* EntitiesSampleValues_Create(int size)
 {
 	return new SampleValues(size);
 }
 
-void EntitiesSampleValues_Setvalue(SampleValues* pSampleValues, const int& index, double value)
+void EntitiesSampleValues_Setvalue(SampleValues* pSampleValues,int index, double value)
 {
 	if (pSampleValues)
 	{

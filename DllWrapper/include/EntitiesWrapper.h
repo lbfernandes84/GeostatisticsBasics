@@ -14,7 +14,7 @@ extern "C"
 	DLLWRAPPER_API void EntitiesSampleSet_AddSample(SampleSet* pSampleSet, Point* pPoint);
 
 	//SampleValues
-	DLLWRAPPER_API SampleValues* EntitiesSampleValues_Create(const int& size);
-	DLLWRAPPER_API void EntitiesSampleValues_Setvalue(SampleValues* pSampleValues, const int& index, double value);
+	DLLWRAPPER_API SampleValues* EntitiesSampleValues_Create(int size);
+	DLLWRAPPER_API void EntitiesSampleValues_Setvalue(SampleValues* pSampleValues, int index, double value);
 	
 }

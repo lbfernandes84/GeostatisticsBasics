@@ -10,8 +10,8 @@ extern "C"
 {
 	//Spherical
 	DLLWRAPPER_API Spherical* SphericalVariogram_Create(double nugget, double sill, double range);
-	DLLWRAPPER_API void SphericalVariogram_Destroy(Spherical* pVariogram);
 	DLLWRAPPER_API double SphericalVariogram_Compute(Spherical* pVariogram, double h) noexcept(false);
+	DLLWRAPPER_API void SphericalVariogram_Destroy(Spherical* pVariogram);
 	
 	//Exponential
 	DLLWRAPPER_API Exponential* ExponentialVariogram_Create(double nugget, double sill, double range);

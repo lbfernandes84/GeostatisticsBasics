@@ -18,4 +18,36 @@ extern "C"
 	{
 		return new EstimationResult;
 	}
+	
+	double OKEstimationResult_GetEstimate(EstimationResult* estimationResult)
+	{
+		double result = -1.0;
+		if (estimationResult)
+		{
+			result = estimationResult->estimate;
+		}
+		return result;
+	}
+
+	double OKEstimationResult_GetVariance(EstimationResult* estimationResult)
+	{
+		double result = -1.0;
+		if (estimationResult)
+		{
+			result = estimationResult->variance;
+		}
+		return result;
+	}
+
+	double OKEstimationResult_GetLagrange(EstimationResult* estimationResult)
+	{
+		double result = -1.0;
+		if (estimationResult)
+		{
+			result = estimationResult->lagrange;
+		}
+		return result;
+	}
+
+
 }

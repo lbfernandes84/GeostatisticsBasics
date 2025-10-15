@@ -55,7 +55,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DLLWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);DLLWRAPPER_EXPORTS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DLLWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);DLLWRAPPER_EXPORTS;DLLWRAPPER_EXPORTS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -75,7 +75,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;DLLWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);DLLWRAPPER_EXPORTS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;DLLWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);DLLWRAPPER_EXPORTS;DLLWRAPPER_EXPORTS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
