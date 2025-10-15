@@ -4,16 +4,17 @@
 #include "Ordinarykriging/Ordinarykriging.h"
 #include "utils/utils.h"
 
-EstimationResult OrdinaryKriging::Estimate(const Variogram& variogram, const Eigen::VectorXd& values, const Point& target)
+EstimationResult OrdinaryKriging::Estimate(const Variogram& variogram, SampleValues& values, const Point& target)
 {
-	int samplesCount = m_samples.size();
+	std::vector<Point>& samples = m_samples.GetSamplesByRef();
+	int samplesCount = static_cast<int>(samples.size());
 	CovarianceMatrixBuilder covarianceMatrixBuilder(m_samples);
 	covarianceMatrixBuilder.Build(variogram);
 	Eigen::MatrixXd& covMatrix = covarianceMatrixBuilder.GetCovarianceMatrixRef();
 	Eigen::VectorXd C0(samplesCount);
 	for (int i = 0; i < samplesCount; ++i)
 	{
-		double h = Utils::EuclidianDistance(m_samples[i], target);
+		double h = Utils::EuclidianDistance(samples[i], target);
 		double gamma = variogram(h);
 		C0(i) = variogram.GetSill() - gamma;
 	}
@@ -46,7 +47,7 @@ EstimationResult OrdinaryKriging::Estimate(const Variogram& variogram, const Eig
 	double mu = x(samplesCount);
 
 	// 5) Compute estimate and kriging variance
-	double estimate = w.dot(values);
+	double estimate = w.dot(values.GetValuesByreference());
 	// kriging variance: sigma_k^2 = sill - w^T c0 - mu
 	double sill = m_variogram.GetSill();
 	double variance = sill - w.dot(C0) - mu;

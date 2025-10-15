@@ -3,7 +3,7 @@
 
 extern "C"
 {
-	DLLWRAPPER_API CovarianceMatrixBuilder* CovarianceMatrixBuilder_Create(std::vector<Point> samples)
+	DLLWRAPPER_API CovarianceMatrixBuilder* CovarianceMatrixBuilder_Create(SampleSet samples)
 	{
 		return new CovarianceMatrixBuilder(samples);
 	}

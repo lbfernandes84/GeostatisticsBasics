@@ -166,6 +166,7 @@
     <ClInclude Include="include\CovarianceMatrixBuilderWrapper.h" />
     <ClInclude Include="include\DllWrapper_API.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="include\OrdinaryKrigingWrapper.h" />
     <ClInclude Include="include\VariogramsWrapper.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -178,6 +179,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\CovarianceMatrixBuilderWrapper.cpp" />
+    <ClCompile Include="src\OrdinaryKrigingWrapper.cpp" />
     <ClCompile Include="src\VariogramsWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>

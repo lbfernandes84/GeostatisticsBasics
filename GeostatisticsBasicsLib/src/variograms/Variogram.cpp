@@ -38,6 +38,9 @@ void Variogram::SetParameters(const double& nugget, const double& sill, const do
 	{
 		throw std::invalid_argument("sill must be >= nugget");
 	}
+	m_nugget = nugget;
+	m_sill = sill;
+	m_range = range;
 }
 
 double Variogram::operator()(const double& h) const

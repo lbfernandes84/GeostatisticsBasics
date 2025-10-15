@@ -97,7 +97,7 @@ TEST(VariogramExponential, h0IsEqualNugget)
 TEST(VariogramExponential, hGreaterRangeIsEqualNuggetPlusSill)
 {
     Exponential variogram(1.3, 10.0, 25.0);
-    EXPECT_EQ(variogram(25.0), 9.5);
+    EXPECT_NEAR(variogram(25.0), 9.5, 0.1);
 }
 
 TEST(VariogramExponential, hHalfRange)

@@ -4,13 +4,16 @@
 #include "variograms/Spherical.h"
 #include "covariance/CovarianceMatrixBuilder.h"
 
-static std::vector<Point> generateSimplePoints()
+static SampleSet generateSimplePoints()
 {
-    return {
+    std::vector<Point> samples =  {
         {0.0, 0.0, 0.0},
         {5.0, 0.0, 0.0},
         {10.0, 0.0, 0.0}
     };
+    SampleSet sampleSet;
+    sampleSet.SetSamples(samples);
+    return sampleSet;
 }
 
 TEST(CovarianceMatrix, SimetricMatrix)

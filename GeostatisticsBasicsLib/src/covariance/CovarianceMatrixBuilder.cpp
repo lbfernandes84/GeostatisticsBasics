@@ -15,11 +15,12 @@ Eigen::MatrixXd& CovarianceMatrixBuilder::GetCovarianceMatrixRef()
 
 void CovarianceMatrixBuilder::Build(const Variogram& variogram)
 {
-    const int n = static_cast<int>(m_points.size());
+    std::vector<Point>& samples = m_samples.GetSamplesByRef();
+    const int n = static_cast<int>(samples.size());
     m_covarianceMatrix.resize(n, n);
     for (int i = 0; i < n; ++i) {
         for (int j = i; j < n; ++j) {
-            double h = Utils::EuclidianDistance(m_points[i], m_points[j]);
+            double h = Utils::EuclidianDistance(samples[i], samples[j]);
             double gamma = variogram(h);
             double cov = variogram.GetSill() - gamma;
             m_covarianceMatrix(i, j) = cov;

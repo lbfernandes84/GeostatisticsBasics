@@ -5,6 +5,7 @@
 #include "variograms/Variogram.h"
 #include "covariance/CovarianceMatrixBuilder.h"
 #include "Entities/Point.h"
+#include "Entities/SampleValues.h"
 
 
 struct EstimationResult
@@ -15,13 +16,14 @@ struct EstimationResult
 	double lagrange;
 };
 
+
 class OrdinaryKriging {
-	std::vector<Point> m_samples;
+	SampleSet m_samples;
 	Variogram m_variogram;
 	
 public:
-	OrdinaryKriging(const std::vector<Point>& points, const Variogram& variogram) : m_samples(points), m_variogram(variogram) {};
-	EstimationResult Estimate(const Variogram& variogram, const Eigen::VectorXd& values, const Point& target);
+	OrdinaryKriging(const SampleSet& samples) : m_samples(samples){};
+	EstimationResult Estimate(const Variogram& variogram, SampleValues& values, const Point& target);
 
 };
 	

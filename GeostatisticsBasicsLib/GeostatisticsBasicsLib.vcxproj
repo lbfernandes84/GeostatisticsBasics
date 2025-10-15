@@ -58,7 +58,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)vendor;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -74,7 +74,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)vendor;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,6 +84,8 @@
   <ItemGroup>
     <ClInclude Include="include\covariance\CovarianceMatrixBuilder.h" />
     <ClInclude Include="include\Entities\Point.h" />
+    <ClInclude Include="include\Entities\SampleSet.h" />
+    <ClInclude Include="include\Entities\SampleValues.h" />
     <ClInclude Include="include\Ordinarykriging\Ordinarykriging.h" />
     <ClInclude Include="include\utils\utils.h" />
     <ClInclude Include="include\variograms\Exponential.h" />
@@ -93,6 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\covariance\CovarianceMatrixBuilder.cpp" />
+    <ClCompile Include="src\Entities\SampleSet.cpp" />
+    <ClCompile Include="src\Entities\SampleValues.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\OrdinaryKriging\OrdinaryKriging.cpp" />
     <ClCompile Include="src\utils\Utils.cpp" />

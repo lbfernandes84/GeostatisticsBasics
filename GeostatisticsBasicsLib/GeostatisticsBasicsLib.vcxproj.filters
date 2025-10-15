@@ -9,6 +9,8 @@
     <ClInclude Include="include\Entities\Point.h" />
     <ClInclude Include="include\covariance\CovarianceMatrixBuilder.h" />
     <ClInclude Include="include\Ordinarykriging\Ordinarykriging.h" />
+    <ClInclude Include="include\Entities\SampleSet.h" />
+    <ClInclude Include="include\Entities\SampleValues.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\variograms\Variogram.cpp" />
@@ -19,5 +21,7 @@
     <ClCompile Include="src\utils\Utils.cpp" />
     <ClCompile Include="src\covariance\CovarianceMatrixBuilder.cpp" />
     <ClCompile Include="src\OrdinaryKriging\OrdinaryKriging.cpp" />
+    <ClCompile Include="src\Entities\SampleSet.cpp" />
+    <ClCompile Include="src\Entities\SampleValues.cpp" />
   </ItemGroup>
 </Project>
