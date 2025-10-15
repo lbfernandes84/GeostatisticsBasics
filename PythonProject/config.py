@@ -1,8 +1,9 @@
+import os
 import ctypes
 
-DLL_NAME = "C:\\Personal\\Projects\\GeostatisticsBasics\\DllWrapper\\bin\\x64\\Release\\DllWrapper.dll"
+DLL_NAME = ".\\dlls\\DllWrapper.dll"
 
-geo = ctypes.CDLL(DLL_NAME)
+geo = ctypes.CDLL(os.path.abspath(DLL_NAME))
 #---------------------------------------------------------Entities-----------------------------------------------------------------------
 
 #Point::Create
