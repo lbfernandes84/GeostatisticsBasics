@@ -45,6 +45,13 @@ TEST(VariogramBasis, hNegative)
     EXPECT_THROW(var(-1.0), std::domain_error);
 }
 
+TEST(VariogramBasis, emptyConstructor)
+{
+    auto var = Variogram();
+    var.SetParameters(5.0, 6.0, 25.0);
+    EXPECT_NEAR(var.GetNugget(), 5.0, 1e-10);
+}
+
 TEST(VariogramBasis, callModelBaseClass)
 {
     auto var = Variogram(5.0, 6.0, 25.0);

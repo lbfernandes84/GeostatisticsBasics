@@ -1,6 +1,13 @@
 #include <stdexcept>
 #include "variograms\variogram.h"
 
+Variogram::Variogram()
+{
+	m_nugget = 0.0;
+	m_sill = 0.0;
+	m_range = 0.0;
+}
+
 Variogram::Variogram(const double& nugget, const double& sill, const double& range) :m_nugget(nugget), m_sill(sill), m_range(range)
 {
 	if (nugget < 0)
@@ -12,6 +19,22 @@ Variogram::Variogram(const double& nugget, const double& sill, const double& ran
 		throw std::invalid_argument("range must be > 0");
 	}
 	if (sill < nugget) 
+	{
+		throw std::invalid_argument("sill must be >= nugget");
+	}
+}
+
+void Variogram::SetParameters(const double& nugget, const double& sill, const double& range)
+{
+	if (nugget < 0)
+	{
+		throw std::invalid_argument("nugget must be >= 0");
+	}
+	if (range <= 0)
+	{
+		throw std::invalid_argument("range must be > 0");
+	}
+	if (sill < nugget)
 	{
 		throw std::invalid_argument("sill must be >= nugget");
 	}
@@ -41,6 +64,7 @@ double Variogram::GetRange() const
 {	
 	return m_range;
 }
+
 
 double Variogram::Model(const double& h, const double& C) const
 {
